@@ -1,6 +1,49 @@
 <div class="container">
-    <h1>Mi primer Formulario</h1>
-    
-
-    
+    <h1>Mi primer Formulario Reactivo</h1>
+ <div class="container border mt-4 pt-2">
+    <form [formGroup]="formularioOne" (submit)="onSubmit(formularioOne)">
+        <div class="row mb-2">
+            <div class="col-6">
+                    <div class="form-group">
+                        <label for="Nombre">Nombre</label>
+                        <input type="text" class="form-control" id="Nombre" placeholder="Ingresa el nombre"
+                        formControlName ="nombre"
+                        > 
+                        <div  class="errorCodigo" *ngIf="formularioOne.controls['nombre'].errors">
+                            El campo contiene un error
+                        </div>      
+                    </div>
+            </div>
+            <div class="col-6">
+                    <div class="form-group">
+                        <label for="Apellido">Apellido</label>
+                        <input type="text" class="form-control" id="Apellido" placeholder="Ingresa el Apellido"
+                        formControlName ="apellido"
+                        >     
+                        <div class="errorCodigo" *ngIf="formularioOne.controls['apellido'].errors">
+                            El campo contiene un error
+                        </div>  
+                    </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        formControlName ="email"
+                        >
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>       
+                        <div class="errorCodigo"  *ngIf="formularioOne.controls['email'].errors">
+                            El campo contiene un error
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="pb-3">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+        
+    </form>
+ </div>
 </div>
